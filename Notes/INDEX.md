@@ -7,26 +7,33 @@
 
 ```
 Notes/
-├── Linux/              → Linux Fundamentals & Advanced
-├── Networking/         → TCP/IP, DNS, Firewalls, VPN
-├── Kubernetes/         → K8s Core + AKS Specifics
-├── Azure/              → All Azure Services (10 guides)
-├── Jenkins/            → CI/CD Pipelines
-├── Terraform/          → Infrastructure as Code
-├── Helm/               → Kubernetes Package Manager
-├── Observability/      → Monitoring, Logging, Tracing
-├── SRE/                → SRE Practices & Reliability
-├── GitOps/             → ArgoCD, Flux, Git Workflows
-├── Service-Mesh/       → Istio, Traffic Management
-├── Security/           → DevSecOps, Container Security
-├── Chaos-Engineering/  → Resilience Testing
-├── Programming/        → Python, Go for DevOps
-├── Multi-Cloud/        → AWS, GCP Comparison
-├── FinOps/             → Cost Optimization
-├── Messaging/          → Kafka, RabbitMQ, Queues
-├── Databases/          → PostgreSQL, MySQL, Redis
-├── System-Design/      → Architecture Patterns
-└── DSA/                → Data Structures & Algorithms
+├── Linux/                  → Linux Fundamentals & Advanced
+├── Networking/             → TCP/IP, DNS, Firewalls, VPN
+├── Docker/                 → Images, Containers, Compose (NEW)
+├── Kubernetes/             → K8s Core + AKS Specifics
+├── Azure/                  → All Azure Services (11 guides)
+├── Jenkins/                → CI/CD Pipelines
+├── Terraform/              → Infrastructure as Code
+├── Helm/                   → Kubernetes Package Manager
+├── Git/                    → Advanced Git & Workflows (NEW)
+├── Observability/          → Monitoring, Logging, Tracing
+├── SRE/                    → SRE Practices & Reliability
+├── GitOps/                 → ArgoCD, Flux, Git Workflows
+├── Service-Mesh/           → Istio, Traffic Management
+├── Security/               → DevSecOps, Container Security
+├── SSL-TLS/                → Certificates & Encryption (NEW)
+├── Chaos-Engineering/      → Resilience Testing
+├── Programming/            → Python, Go for DevOps
+├── Multi-Cloud/            → AWS, GCP Comparison
+├── FinOps/                 → Cost Optimization
+├── Messaging/              → Kafka, RabbitMQ, Queues
+├── Databases/              → PostgreSQL, MySQL, Redis
+├── System-Design/          → Architecture Patterns
+├── Performance-Testing/    → k6, JMeter, Load Testing (NEW)
+├── Incident-Management/    → On-Call, Response, Post-Mortems (NEW)
+├── Deployment-Strategies/  → Blue-Green, Canary, Feature Flags (NEW)
+├── Scripting/              → Bash, PowerShell Automation (NEW)
+└── DSA/                    → Data Structures & Algorithms
 ```
 
 ---
