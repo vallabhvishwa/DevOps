@@ -268,13 +268,13 @@ kafka-configs.sh --bootstrap-server localhost:9092 \
 **Investigation**:
 ```bash
 # Check producer metrics
-# buffer-available-bytes → if low, buffer exhausted
-# record-queue-time-avg → time in buffer
-# request-latency-avg → broker response time
+# buffer-available-bytes â†’ if low, buffer exhausted
+# record-queue-time-avg â†’ time in buffer
+# request-latency-avg â†’ broker response time
 
 # In producer logs:
-# "batch expired" → batch.size or linger.ms issue
-# "buffer exhausted" → buffer.memory too small
+# "batch expired" â†’ batch.size or linger.ms issue
+# "buffer exhausted" â†’ buffer.memory too small
 ```
 
 **Solution**:
@@ -310,7 +310,7 @@ Consumer starts but no messages
 kafka-consumer-groups.sh --bootstrap-server localhost:9092 \
   --describe --group my-group
 
-# If CURRENT-OFFSET = LOG-END-OFFSET → all caught up
+# If CURRENT-OFFSET = LOG-END-OFFSET â†’ all caught up
 # Check auto.offset.reset setting
 ```
 
@@ -568,32 +568,32 @@ max.poll.records=1000
 # QUICK REFERENCE
 
 ```
-COMMON ERRORS → SOLUTIONS:
+COMMON ERRORS â†’ SOLUTIONS:
 
 PRODUCER:
-┌────────────────────────────────────────────────────────────────┐
-│ Connection refused      → Check bootstrap.servers, firewall   │
-│ Topic not found         → Create topic or enable auto-create  │
-│ NOT_ENOUGH_REPLICAS     → Fix broker issues, check ISR        │
-│ Buffer exhausted        → Increase buffer.memory              │
-│ Timeout                 → Increase timeouts, check broker     │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Connection refused      â†’ Check bootstrap.servers, firewall   â”‚
+â”‚ Topic not found         â†’ Create topic or enable auto-create  â”‚
+â”‚ NOT_ENOUGH_REPLICAS     â†’ Fix broker issues, check ISR        â”‚
+â”‚ Buffer exhausted        â†’ Increase buffer.memory              â”‚
+â”‚ Timeout                 â†’ Increase timeouts, check broker     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 CONSUMER:
-┌────────────────────────────────────────────────────────────────┐
-│ No messages             → Check offset, reset if needed       │
-│ Lag growing             → Add consumers, optimize processing  │
-│ Constant rebalance      → Increase timeouts, reduce poll      │
-│ Duplicates              → Manual commit, idempotent consumer  │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ No messages             â†’ Check offset, reset if needed       â”‚
+â”‚ Lag growing             â†’ Add consumers, optimize processing  â”‚
+â”‚ Constant rebalance      â†’ Increase timeouts, reduce poll      â”‚
+â”‚ Duplicates              â†’ Manual commit, idempotent consumer  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 BROKER:
-┌────────────────────────────────────────────────────────────────┐
-│ Under-replicated        → Check broker health, network        │
-│ Disk full               → Reduce retention, add disk          │
-│ High CPU/memory         → Tune threads, add brokers           │
-│ Won't start             → Check logs, ZK connection, port     │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Under-replicated        â†’ Check broker health, network        â”‚
+â”‚ Disk full               â†’ Reduce retention, add disk          â”‚
+â”‚ High CPU/memory         â†’ Tune threads, add brokers           â”‚
+â”‚ Won't start             â†’ Check logs, ZK connection, port     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---

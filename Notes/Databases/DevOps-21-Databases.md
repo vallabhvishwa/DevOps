@@ -20,30 +20,30 @@
 
 ```
 Database Types:
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│  RELATIONAL (SQL):                                              │
-│  ├── PostgreSQL  - Feature-rich, ACID compliant                 │
-│  ├── MySQL       - Popular, web applications                    │
-│  └── SQL Server  - Enterprise, Microsoft ecosystem              │
-│                                                                 │
-│  KEY-VALUE:                                                     │
-│  ├── Redis       - In-memory, caching, sessions                 │
-│  └── Memcached   - Simple caching                               │
-│                                                                 │
-│  DOCUMENT:                                                      │
-│  ├── MongoDB     - JSON documents                               │
-│  └── Cosmos DB   - Multi-model, global distribution             │
-│                                                                 │
-│  DevOps Responsibilities:                                       │
-│  ├── Installation & configuration                               │
-│  ├── Backup & recovery                                          │
-│  ├── High availability setup                                    │
-│  ├── Performance monitoring                                     │
-│  ├── Security & access control                                  │
-│  └── Upgrades & patching                                        │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                                                 â”‚
+â”‚  RELATIONAL (SQL):                                              â”‚
+â”‚  â”œâ”€â”€ PostgreSQL  - Feature-rich, ACID compliant                 â”‚
+â”‚  â”œâ”€â”€ MySQL       - Popular, web applications                    â”‚
+â”‚  â””â”€â”€ SQL Server  - Enterprise, Microsoft ecosystem              â”‚
+â”‚                                                                 â”‚
+â”‚  KEY-VALUE:                                                     â”‚
+â”‚  â”œâ”€â”€ Redis       - In-memory, caching, sessions                 â”‚
+â”‚  â””â”€â”€ Memcached   - Simple caching                               â”‚
+â”‚                                                                 â”‚
+â”‚  DOCUMENT:                                                      â”‚
+â”‚  â”œâ”€â”€ MongoDB     - JSON documents                               â”‚
+â”‚  â””â”€â”€ Cosmos DB   - Multi-model, global distribution             â”‚
+â”‚                                                                 â”‚
+â”‚  DevOps Responsibilities:                                       â”‚
+â”‚  â”œâ”€â”€ Installation & configuration                               â”‚
+â”‚  â”œâ”€â”€ Backup & recovery                                          â”‚
+â”‚  â”œâ”€â”€ High availability setup                                    â”‚
+â”‚  â”œâ”€â”€ Performance monitoring                                     â”‚
+â”‚  â”œâ”€â”€ Security & access control                                  â”‚
+â”‚  â””â”€â”€ Upgrades & patching                                        â”‚
+â”‚                                                                 â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -234,28 +234,28 @@ echo "Backup completed: $BACKUP_FILE"
 
 ```
 PostgreSQL HA Options:
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│  STREAMING REPLICATION:                                         │
-│  ┌─────────┐    WAL Stream    ┌─────────┐                       │
-│  │ Primary │─────────────────►│ Replica │                       │
-│  │  (R/W)  │                  │  (R/O)  │                       │
-│  └─────────┘                  └─────────┘                       │
-│                                                                 │
-│  WITH PATRONI (Recommended):                                    │
-│  ┌─────────┐  ┌─────────┐  ┌─────────┐                         │
-│  │ Node 1  │  │ Node 2  │  │ Node 3  │                         │
-│  │ Primary │  │ Replica │  │ Replica │                         │
-│  └────┬────┘  └────┬────┘  └────┬────┘                         │
-│       └────────────┼────────────┘                               │
-│                    ▼                                            │
-│              ┌──────────┐                                       │
-│              │   etcd   │ (Distributed consensus)               │
-│              └──────────┘                                       │
-│                                                                 │
-│  Automatic failover, leader election                            │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                                                 â”‚
+â”‚  STREAMING REPLICATION:                                         â”‚
+â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”    WAL Stream    â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”                       â”‚
+â”‚  â”‚ Primary â”‚â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â–ºâ”‚ Replica â”‚                       â”‚
+â”‚  â”‚  (R/W)  â”‚                  â”‚  (R/O)  â”‚                       â”‚
+â”‚  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                  â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                       â”‚
+â”‚                                                                 â”‚
+â”‚  WITH PATRONI (Recommended):                                    â”‚
+â”‚  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”  â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”                         â”‚
+â”‚  â”‚ Node 1  â”‚  â”‚ Node 2  â”‚  â”‚ Node 3  â”‚                         â”‚
+â”‚  â”‚ Primary â”‚  â”‚ Replica â”‚  â”‚ Replica â”‚                         â”‚
+â”‚  â””â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”˜  â””â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”˜                         â”‚
+â”‚       â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                               â”‚
+â”‚                    â–¼                                            â”‚
+â”‚              â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”                                       â”‚
+â”‚              â”‚   etcd   â”‚ (Distributed consensus)               â”‚
+â”‚              â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜                                       â”‚
+â”‚                                                                 â”‚
+â”‚  Automatic failover, leader election                            â”‚
+â”‚                                                                 â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -264,37 +264,37 @@ PostgreSQL HA Options:
 
 ```
 Performance Monitoring Queries:
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│  POSTGRESQL:                                                    │
-│  -- Slow queries                                                │
-│  SELECT * FROM pg_stat_statements                               │
-│    ORDER BY total_time DESC LIMIT 10;                           │
-│                                                                 │
-│  -- Table bloat                                                 │
-│  SELECT relname, n_dead_tup, n_live_tup                         │
-│    FROM pg_stat_user_tables                                     │
-│    WHERE n_dead_tup > 1000;                                     │
-│                                                                 │
-│  -- Index usage                                                 │
-│  SELECT relname, indexrelname, idx_scan, idx_tup_read           │
-│    FROM pg_stat_user_indexes;                                   │
-│                                                                 │
-│  -- Connection usage                                            │
-│  SELECT count(*) FROM pg_stat_activity;                         │
-│                                                                 │
-│  MYSQL:                                                         │
-│  SHOW FULL PROCESSLIST;                                         │
-│  SHOW STATUS LIKE 'Slow_queries';                               │
-│  SHOW ENGINE INNODB STATUS;                                     │
-│                                                                 │
-│  Key Maintenance:                                               │
-│  ├── VACUUM ANALYZE (PostgreSQL)                                │
-│  ├── OPTIMIZE TABLE (MySQL)                                     │
-│  ├── REINDEX (PostgreSQL)                                       │
-│  └── Update statistics regularly                                │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                                                 â”‚
+â”‚  POSTGRESQL:                                                    â”‚
+â”‚  -- Slow queries                                                â”‚
+â”‚  SELECT * FROM pg_stat_statements                               â”‚
+â”‚    ORDER BY total_time DESC LIMIT 10;                           â”‚
+â”‚                                                                 â”‚
+â”‚  -- Table bloat                                                 â”‚
+â”‚  SELECT relname, n_dead_tup, n_live_tup                         â”‚
+â”‚    FROM pg_stat_user_tables                                     â”‚
+â”‚    WHERE n_dead_tup > 1000;                                     â”‚
+â”‚                                                                 â”‚
+â”‚  -- Index usage                                                 â”‚
+â”‚  SELECT relname, indexrelname, idx_scan, idx_tup_read           â”‚
+â”‚    FROM pg_stat_user_indexes;                                   â”‚
+â”‚                                                                 â”‚
+â”‚  -- Connection usage                                            â”‚
+â”‚  SELECT count(*) FROM pg_stat_activity;                         â”‚
+â”‚                                                                 â”‚
+â”‚  MYSQL:                                                         â”‚
+â”‚  SHOW FULL PROCESSLIST;                                         â”‚
+â”‚  SHOW STATUS LIKE 'Slow_queries';                               â”‚
+â”‚  SHOW ENGINE INNODB STATUS;                                     â”‚
+â”‚                                                                 â”‚
+â”‚  Key Maintenance:                                               â”‚
+â”‚  â”œâ”€â”€ VACUUM ANALYZE (PostgreSQL)                                â”‚
+â”‚  â”œâ”€â”€ OPTIMIZE TABLE (MySQL)                                     â”‚
+â”‚  â”œâ”€â”€ REINDEX (PostgreSQL)                                       â”‚
+â”‚  â””â”€â”€ Update statistics regularly                                â”‚
+â”‚                                                                 â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -374,3 +374,10 @@ This completes the DevOps Engineer's Complete Reference Guide with **21 parts**:
 | 21 | Databases |
 
 **Total: ~25,000+ lines of comprehensive documentation**
+---
+
+## Related
+
+- [SQL Server on Azure](./SQL-Server-Azure.md)
+- [SQL Server Troubleshooting](../../Troubleshooting/Databases/SQL-Server-Azure-Troubleshooting.md)
+- [General Database Troubleshooting](../../Troubleshooting/Databases/08-Database-Troubleshooting.md)

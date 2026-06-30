@@ -1,6 +1,8 @@
 # Node.js Application Troubleshooting - Complete Guide
 ## From Basic to Advanced - Every Scenario
 
+> **Learning reference:** [Observability & Node.js](../../Notes/Observability/DevOps-07-Observability-Apps.md)
+
 ---
 
 # SECTION 1: STARTUP ISSUES

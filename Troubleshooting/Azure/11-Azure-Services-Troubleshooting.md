@@ -124,11 +124,11 @@ Error: Function execution timeout
 
 **Limits**:
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│ Consumption Plan:  5 min (default), 10 min (max)               │
-│ Premium Plan:      30 min (default), unlimited configurable    │
-│ Dedicated Plan:    30 min (default), unlimited configurable    │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Consumption Plan:  5 min (default), 10 min (max)               â”‚
+â”‚ Premium Plan:      30 min (default), unlimited configurable    â”‚
+â”‚ Dedicated Plan:    30 min (default), unlimited configurable    â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 **Solution**:
@@ -203,7 +203,7 @@ az containerapp show -g myRG -n myapp --query "properties.template.scale"
 az containerapp replica list -g myRG -n myapp
 
 # Check metrics
-# Portal → Container App → Metrics → Requests/Replica Count
+# Portal â†’ Container App â†’ Metrics â†’ Requests/Replica Count
 ```
 
 **Solution**:
@@ -473,7 +473,7 @@ az apim backend list -g myRG --service-name myapim
 curl https://backend.example.com/api/resource
 
 # Check APIM trace
-# Enable in Portal: APIs → Test → Trace
+# Enable in Portal: APIs â†’ Test â†’ Trace
 ```
 
 **Common Causes**:
@@ -497,7 +497,7 @@ curl https://backend.example.com/api/resource
 **Investigation**:
 ```bash
 # Check APIM metrics
-# Portal → APIM → Metrics → Backend Duration, Failed Requests
+# Portal â†’ APIM â†’ Metrics â†’ Backend Duration, Failed Requests
 
 # Check policy timeout
 # <forward-request timeout="60" />
@@ -522,7 +522,7 @@ Expected header transformation not happening
 
 **Investigation**:
 - Check policy scope (All APIs vs specific API vs operation)
-- Check policy order (inbound → backend → outbound)
+- Check policy order (inbound â†’ backend â†’ outbound)
 - Use trace to see policy execution
 
 **Example Policy Debug**:
@@ -547,39 +547,39 @@ Expected header transformation not happening
 COMMON ERRORS:
 
 Azure Functions:
-┌────────────────────────────────────────────────────────────────┐
-│ Cold start slow        → Use Premium plan                     │
-│ Timeout error          → Increase functionTimeout             │
-│ Out of memory          → Upgrade plan, optimize code          │
-│ Trigger not firing     → Check bindings, connection strings   │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Cold start slow        â†’ Use Premium plan                     â”‚
+â”‚ Timeout error          â†’ Increase functionTimeout             â”‚
+â”‚ Out of memory          â†’ Upgrade plan, optimize code          â”‚
+â”‚ Trigger not firing     â†’ Check bindings, connection strings   â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Container Apps:
-┌────────────────────────────────────────────────────────────────┐
-│ Image pull failed      → Check registry auth, image exists    │
-│ Container restarting   → Check logs, health probes            │
-│ Not scaling            → Check scale rules, metrics           │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Image pull failed      â†’ Check registry auth, image exists    â”‚
+â”‚ Container restarting   â†’ Check logs, health probes            â”‚
+â”‚ Not scaling            â†’ Check scale rules, metrics           â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 ACR:
-┌────────────────────────────────────────────────────────────────┐
-│ Auth failed            → az acr login, check SP credentials   │
-│ Image not found        → Check repo/tag exists                │
-│ Quota exceeded         → Upgrade SKU or purge old images      │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Auth failed            â†’ az acr login, check SP credentials   â”‚
+â”‚ Image not found        â†’ Check repo/tag exists                â”‚
+â”‚ Quota exceeded         â†’ Upgrade SKU or purge old images      â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Service Bus:
-┌────────────────────────────────────────────────────────────────┐
-│ Entity not found       → Check queue/topic exists             │
-│ Messages dead-lettered → Check MaxDeliveryCount, exceptions   │
-│ Throttling             → Upgrade to Premium, add MUs          │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Entity not found       â†’ Check queue/topic exists             â”‚
+â”‚ Messages dead-lettered â†’ Check MaxDeliveryCount, exceptions   â”‚
+â”‚ Throttling             â†’ Upgrade to Premium, add MUs          â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 API Management:
-┌────────────────────────────────────────────────────────────────┐
-│ 404 Not Found          → Check API path configuration         │
-│ 401 Unauthorized       → Include subscription key             │
-│ 500 Backend Error      → Check backend URL, connectivity      │
-│ Timeout                → Increase forward-request timeout     │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ 404 Not Found          â†’ Check API path configuration         â”‚
+â”‚ 401 Unauthorized       â†’ Include subscription key             â”‚
+â”‚ 500 Backend Error      â†’ Check backend URL, connectivity      â”‚
+â”‚ Timeout                â†’ Increase forward-request timeout     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```

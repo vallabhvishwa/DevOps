@@ -1,6 +1,8 @@
 # Network Troubleshooting - Complete Guide
 ## From Basic to Advanced - Every Scenario
 
+> **Learning reference:** [Networking](../../Notes/Networking/DevOps-03-Networking.md) | [SSL/TLS](../../Notes/SSL-TLS/SSL-TLS-Certificates-Guide.md)
+
 ---
 
 # SECTION 1: CONNECTIVITY ISSUES

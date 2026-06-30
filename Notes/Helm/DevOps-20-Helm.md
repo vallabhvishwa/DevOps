@@ -18,27 +18,27 @@
 
 ```
 Helm Concepts:
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│  CHART: Package of Kubernetes resources                         │
-│  ├── Templates + Values = Rendered manifests                   │
-│  └── Versioned, shareable, reusable                             │
-│                                                                 │
-│  RELEASE: Instance of a chart in a cluster                      │
-│  ├── helm install myrelease ./mychart                           │
-│  └── Multiple releases of same chart possible                   │
-│                                                                 │
-│  REPOSITORY: Collection of charts                               │
-│  ├── helm repo add bitnami https://charts.bitnami.com/bitnami   │
-│  └── Public or private                                          │
-│                                                                 │
-│  Workflow:                                                      │
-│  Chart + Values ──► helm template ──► K8s Manifests             │
-│                              │                                  │
-│                              ▼                                  │
-│                     kubectl apply (via helm)                    │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                                                 â”‚
+â”‚  CHART: Package of Kubernetes resources                         â”‚
+â”‚  â”œâ”€â”€ Templates + Values = Rendered manifests                   â”‚
+â”‚  â””â”€â”€ Versioned, shareable, reusable                             â”‚
+â”‚                                                                 â”‚
+â”‚  RELEASE: Instance of a chart in a cluster                      â”‚
+â”‚  â”œâ”€â”€ helm install myrelease ./mychart                           â”‚
+â”‚  â””â”€â”€ Multiple releases of same chart possible                   â”‚
+â”‚                                                                 â”‚
+â”‚  REPOSITORY: Collection of charts                               â”‚
+â”‚  â”œâ”€â”€ helm repo add bitnami https://charts.bitnami.com/bitnami   â”‚
+â”‚  â””â”€â”€ Public or private                                          â”‚
+â”‚                                                                 â”‚
+â”‚  Workflow:                                                      â”‚
+â”‚  Chart + Values â”€â”€â–º helm template â”€â”€â–º K8s Manifests             â”‚
+â”‚                              â”‚                                  â”‚
+â”‚                              â–¼                                  â”‚
+â”‚                     kubectl apply (via helm)                    â”‚
+â”‚                                                                 â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -47,22 +47,22 @@ Helm Concepts:
 
 ```
 mychart/
-├── Chart.yaml          # Chart metadata
-├── values.yaml         # Default values
-├── values-prod.yaml    # Environment overrides
-├── charts/             # Dependencies
-├── templates/          # Kubernetes templates
-│   ├── NOTES.txt       # Post-install notes
-│   ├── _helpers.tpl    # Template helpers
-│   ├── deployment.yaml
-│   ├── service.yaml
-│   ├── ingress.yaml
-│   ├── configmap.yaml
-│   ├── secret.yaml
-│   ├── hpa.yaml
-│   └── tests/
-│       └── test-connection.yaml
-└── .helmignore         # Files to ignore
+â”œâ”€â”€ Chart.yaml          # Chart metadata
+â”œâ”€â”€ values.yaml         # Default values
+â”œâ”€â”€ values-prod.yaml    # Environment overrides
+â”œâ”€â”€ charts/             # Dependencies
+â”œâ”€â”€ templates/          # Kubernetes templates
+â”‚   â”œâ”€â”€ NOTES.txt       # Post-install notes
+â”‚   â”œâ”€â”€ _helpers.tpl    # Template helpers
+â”‚   â”œâ”€â”€ deployment.yaml
+â”‚   â”œâ”€â”€ service.yaml
+â”‚   â”œâ”€â”€ ingress.yaml
+â”‚   â”œâ”€â”€ configmap.yaml
+â”‚   â”œâ”€â”€ secret.yaml
+â”‚   â”œâ”€â”€ hpa.yaml
+â”‚   â””â”€â”€ tests/
+â”‚       â””â”€â”€ test-connection.yaml
+â””â”€â”€ .helmignore         # Files to ignore
 ```
 
 ```yaml
@@ -271,37 +271,37 @@ helm push mychart-1.0.0.tgz oci://myregistry.azurecr.io/helm
 
 ```
 Helm Best Practices:
-┌─────────────────────────────────────────────────────────────────┐
-│                                                                 │
-│  1. NAMING                                                      │
-│     ├── Use include for generated names                         │
-│     ├── Keep names under 63 characters                          │
-│     └── Use consistent labels                                   │
-│                                                                 │
-│  2. VALUES                                                      │
-│     ├── Document all values in values.yaml                      │
-│     ├── Use sensible defaults                                   │
-│     ├── Avoid deeply nested structures                          │
-│     └── Use values-{env}.yaml for environments                  │
-│                                                                 │
-│  3. TEMPLATES                                                   │
-│     ├── Use _helpers.tpl for reusable functions                 │
-│     ├── Quote strings with {{ .Value | quote }}                 │
-│     ├── Use nindent for proper indentation                      │
-│     └── Handle empty values gracefully                          │
-│                                                                 │
-│  4. SECURITY                                                    │
-│     ├── Never hardcode secrets in values                        │
-│     ├── Use external secrets (Vault, External Secrets)          │
-│     └── Validate inputs                                         │
-│                                                                 │
-│  5. TESTING                                                     │
-│     ├── helm lint before committing                             │
-│     ├── helm template to verify output                          │
-│     ├── Add helm test templates                                 │
-│     └── Test with different value combinations                  │
-│                                                                 │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚                                                                 â”‚
+â”‚  1. NAMING                                                      â”‚
+â”‚     â”œâ”€â”€ Use include for generated names                         â”‚
+â”‚     â”œâ”€â”€ Keep names under 63 characters                          â”‚
+â”‚     â””â”€â”€ Use consistent labels                                   â”‚
+â”‚                                                                 â”‚
+â”‚  2. VALUES                                                      â”‚
+â”‚     â”œâ”€â”€ Document all values in values.yaml                      â”‚
+â”‚     â”œâ”€â”€ Use sensible defaults                                   â”‚
+â”‚     â”œâ”€â”€ Avoid deeply nested structures                          â”‚
+â”‚     â””â”€â”€ Use values-{env}.yaml for environments                  â”‚
+â”‚                                                                 â”‚
+â”‚  3. TEMPLATES                                                   â”‚
+â”‚     â”œâ”€â”€ Use _helpers.tpl for reusable functions                 â”‚
+â”‚     â”œâ”€â”€ Quote strings with {{ .Value | quote }}                 â”‚
+â”‚     â”œâ”€â”€ Use nindent for proper indentation                      â”‚
+â”‚     â””â”€â”€ Handle empty values gracefully                          â”‚
+â”‚                                                                 â”‚
+â”‚  4. SECURITY                                                    â”‚
+â”‚     â”œâ”€â”€ Never hardcode secrets in values                        â”‚
+â”‚     â”œâ”€â”€ Use external secrets (Vault, External Secrets)          â”‚
+â”‚     â””â”€â”€ Validate inputs                                         â”‚
+â”‚                                                                 â”‚
+â”‚  5. TESTING                                                     â”‚
+â”‚     â”œâ”€â”€ helm lint before committing                             â”‚
+â”‚     â”œâ”€â”€ helm template to verify output                          â”‚
+â”‚     â”œâ”€â”€ Add helm test templates                                 â”‚
+â”‚     â””â”€â”€ Test with different value combinations                  â”‚
+â”‚                                                                 â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---
@@ -319,4 +319,4 @@ Master Helm for efficient Kubernetes application management.
 
 ---
 
-**Next Part**: [Part 21: Database Operations](./DevOps-Complete-Reference-Guide-Part21-Databases.md)
+**See also:** [Helm Enterprise Patterns](./Helm-Enterprise-Patterns.md) | [Helm Cheatsheet](../Cheatsheets/Helm-Cheatsheet.md) | [Databases](../Databases/DevOps-21-Databases.md)

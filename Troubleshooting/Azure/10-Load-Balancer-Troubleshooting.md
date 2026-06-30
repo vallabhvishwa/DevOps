@@ -156,7 +156,7 @@ Error: Cannot assign requested address
 **Investigation**:
 ```bash
 # Check SNAT port usage in Azure Monitor
-# Metrics → Load Balancer → SNAT Connection Count
+# Metrics â†’ Load Balancer â†’ SNAT Connection Count
 
 # On VM, check connection count
 ss -s
@@ -169,13 +169,13 @@ az network lb show -g myRG -n myLB --query "outboundRules"
 **Understanding SNAT**:
 ```
 SNAT PORT ALLOCATION:
-┌──────────────────────────────────────────────────────────────┐
-│ Each Public IP = 64,000 ports                               │
-│ Ports divided among backend pool instances                  │
-│                                                              │
-│ Example: 1 IP, 10 VMs = 6,400 ports each                    │
-│ If VM makes 7,000 concurrent connections → EXHAUSTED!       │
-└──────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Each Public IP = 64,000 ports                               â”‚
+â”‚ Ports divided among backend pool instances                  â”‚
+â”‚                                                              â”‚
+â”‚ Example: 1 IP, 10 VMs = 6,400 ports each                    â”‚
+â”‚ If VM makes 7,000 concurrent connections â†’ EXHAUSTED!       â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 **Solution**:
@@ -213,7 +213,7 @@ az network nat gateway create \
 ```bash
 # Check LB type
 az network lb show -g myRG -n myLB --query "frontendIpConfigurations[0].publicIpAddress"
-# If null → Internal LB
+# If null â†’ Internal LB
 
 # VMs have no public IP and no outbound path
 az vm show -g myRG -n myVM --query "networkProfile.networkInterfaces[0]"
@@ -250,11 +250,11 @@ az network lb rule show -g myRG --lb-name myLB -n myRule \
 # Standard LB doesn't support weights, all equal
 
 # Monitor per-instance metrics
-# Azure Monitor → Metrics → Split by Backend IP
+# Azure Monitor â†’ Metrics â†’ Split by Backend IP
 ```
 
 **Common Causes**:
-- Source IP affinity enabled (same clients → same server)
+- Source IP affinity enabled (same clients â†’ same server)
 - Long-lived connections (WebSocket, database)
 - Unequal backend capacity
 
@@ -317,7 +317,7 @@ az network application-gateway http-settings show \
 **Investigation**:
 ```bash
 # Check backend health history
-# Azure Monitor → Application Gateway → Backend health
+# Azure Monitor â†’ Application Gateway â†’ Backend health
 
 # Check if SSL cert expired (for HTTPS backends)
 az network application-gateway ssl-cert list -g myRG --gateway-name myAppGW
@@ -359,10 +359,10 @@ az network application-gateway http-settings update \
 **Deep Investigation**:
 ```bash
 # Check App GW capacity units
-# Azure Monitor → Metrics → Capacity Units
+# Azure Monitor â†’ Metrics â†’ Capacity Units
 
 # Check failed requests metric
-# Azure Monitor → Metrics → Failed Requests
+# Azure Monitor â†’ Metrics â†’ Failed Requests
 
 # Check if autoscaling is working
 az network application-gateway show -g myRG -n myAppGW \
@@ -605,7 +605,7 @@ nslookup myapp.contoso.com
 **Solution**:
 ```bash
 # Add CNAME record in DNS:
-# myapp.contoso.com → myendpoint.azurefd.net
+# myapp.contoso.com â†’ myendpoint.azurefd.net
 
 # Validate domain
 az afd custom-domain create \
@@ -660,9 +660,9 @@ az network traffic-manager profile update \
 
 **Understanding**:
 ```
-FAILOVER TIME = (Probe Interval × Tolerated Failures) + DNS TTL
+FAILOVER TIME = (Probe Interval Ã— Tolerated Failures) + DNS TTL
 
-Default: (30s × 3) + 60s = 150 seconds minimum!
+Default: (30s Ã— 3) + 60s = 150 seconds minimum!
 ```
 
 **Solution**:
@@ -675,7 +675,7 @@ az network traffic-manager profile update \
   --tolerated-number-of-failures 2 \
   --ttl 30
 
-# New failover time: (10 × 2) + 30 = 50 seconds
+# New failover time: (10 Ã— 2) + 30 = 50 seconds
 ```
 
 ---
@@ -716,37 +716,37 @@ az network traffic-manager profile update -g myRG -n myTM --ttl 30
 # QUICK REFERENCE
 
 ```
-COMMON ERRORS → LIKELY CAUSE:
+COMMON ERRORS â†’ LIKELY CAUSE:
 
 Load Balancer:
-┌────────────────────────────────────────────────────────────────┐
-│ All backends unhealthy     → NSG blocking, probe port closed  │
-│ Intermittent health flips  → App slow, resource pressure      │
-│ Outbound connection fails  → SNAT exhaustion                  │
-│ No traffic distribution    → No LB rule configured            │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ All backends unhealthy     â†’ NSG blocking, probe port closed  â”‚
+â”‚ Intermittent health flips  â†’ App slow, resource pressure      â”‚
+â”‚ Outbound connection fails  â†’ SNAT exhaustion                  â”‚
+â”‚ No traffic distribution    â†’ No LB rule configured            â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Application Gateway:
-┌────────────────────────────────────────────────────────────────┐
-│ 502 Bad Gateway            → Backend unreachable/unhealthy    │
-│ 504 Gateway Timeout        → Backend too slow                 │
-│ 403 Forbidden              → WAF blocking                     │
-│ SSL handshake failed       → Certificate issue                │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ 502 Bad Gateway            â†’ Backend unreachable/unhealthy    â”‚
+â”‚ 504 Gateway Timeout        â†’ Backend too slow                 â”‚
+â”‚ 403 Forbidden              â†’ WAF blocking                     â”‚
+â”‚ SSL handshake failed       â†’ Certificate issue                â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Front Door:
-┌────────────────────────────────────────────────────────────────┐
-│ Origin unhealthy           → Origin firewall, wrong path      │
-│ Stale content              → Caching, need purge              │
-│ Custom domain error        → DNS not configured               │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Origin unhealthy           â†’ Origin firewall, wrong path      â”‚
+â”‚ Stale content              â†’ Caching, need purge              â”‚
+â”‚ Custom domain error        â†’ DNS not configured               â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 
 Traffic Manager:
-┌────────────────────────────────────────────────────────────────┐
-│ Endpoint degraded          → Health probe failing             │
-│ Slow failover              → High TTL, probe interval         │
-│ Wrong endpoint returned    → DNS caching                      │
-└────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Endpoint degraded          â†’ Health probe failing             â”‚
+â”‚ Slow failover              â†’ High TTL, probe interval         â”‚
+â”‚ Wrong endpoint returned    â†’ DNS caching                      â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ---

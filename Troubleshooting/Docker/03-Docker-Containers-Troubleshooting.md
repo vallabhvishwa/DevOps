@@ -1,6 +1,8 @@
 # Docker & Container Troubleshooting - Complete Guide
 ## From Basic to Advanced - Every Scenario
 
+> **Learning reference:** [Docker Guide](../../Notes/Docker/Docker-Complete-Guide.md)
+
 ---
 
 # SECTION 1: CONTAINER WON'T START

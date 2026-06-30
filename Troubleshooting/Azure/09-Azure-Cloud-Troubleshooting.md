@@ -523,18 +523,18 @@ az webapp restart -g myRG -n myapp
 
 ```
 COMMON ERROR CODES:
-┌─────────────────────────────┬─────────────────────────────────────┐
-│ OperationNotAllowed         │ Quota exceeded or not permitted     │
-│ ResourceNotFound            │ Resource doesn't exist              │
-│ AuthorizationFailed         │ Missing RBAC permission             │
-│ InvalidParameter            │ Wrong configuration value           │
-│ RequestDisallowedByPolicy   │ Azure Policy blocking               │
-│ LinkedAuthorizationFailed   │ Cross-subscription permission       │
-│ SkuNotAvailable             │ SKU not available in region         │
-│ QuotaExceeded               │ Service quota limit                 │
-│ Conflict                    │ Resource state conflict             │
-│ BadRequest                  │ Invalid request                     │
-└─────────────────────────────┴─────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ OperationNotAllowed         â”‚ Quota exceeded or not permitted     â”‚
+â”‚ ResourceNotFound            â”‚ Resource doesn't exist              â”‚
+â”‚ AuthorizationFailed         â”‚ Missing RBAC permission             â”‚
+â”‚ InvalidParameter            â”‚ Wrong configuration value           â”‚
+â”‚ RequestDisallowedByPolicy   â”‚ Azure Policy blocking               â”‚
+â”‚ LinkedAuthorizationFailed   â”‚ Cross-subscription permission       â”‚
+â”‚ SkuNotAvailable             â”‚ SKU not available in region         â”‚
+â”‚ QuotaExceeded               â”‚ Service quota limit                 â”‚
+â”‚ Conflict                    â”‚ Resource state conflict             â”‚
+â”‚ BadRequest                  â”‚ Invalid request                     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 ## Diagnostic Commands

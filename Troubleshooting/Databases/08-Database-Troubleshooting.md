@@ -141,13 +141,13 @@ ALTER SYSTEM SET max_connections = 200;
 **Hidden Causes**:
 ```
 CONNECTION DROPS:
-┌─────────────────────────────────────────────────────────────────┐
-│  1. Firewall/NAT timeout                                        │
-│  2. Connection pool timeout                                     │
-│  3. Database killed idle connection                             │
-│  4. Network issue                                               │
-│  5. OOMKilled database                                          │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  1. Firewall/NAT timeout                                        â”‚
+â”‚  2. Connection pool timeout                                     â”‚
+â”‚  3. Database killed idle connection                             â”‚
+â”‚  4. Network issue                                               â”‚
+â”‚  5. OOMKilled database                                          â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 **Deep Investigation**:
@@ -267,13 +267,13 @@ ANALYZE tablename;
 **Hidden Causes**:
 ```
 RANDOM SLOWNESS:
-┌─────────────────────────────────────────────────────────────────┐
-│  1. Autovacuum running                                          │
-│  2. Checkpoint happening                                        │
-│  3. Lock contention                                             │
-│  4. Disk I/O saturation                                         │
-│  5. Memory pressure (swapping)                                  │
-└─────────────────────────────────────────────────────────────────┘
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚  1. Autovacuum running                                          â”‚
+â”‚  2. Checkpoint happening                                        â”‚
+â”‚  3. Lock contention                                             â”‚
+â”‚  4. Disk I/O saturation                                         â”‚
+â”‚  5. Memory pressure (swapping)                                  â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
 ```
 
 **Deep Investigation**:
@@ -577,13 +577,13 @@ CLIENT LIST             # Connected clients
 CONFIG GET maxmemory    # Check settings
 ```
 
-## Common Errors → Solutions
+## Common Errors â†’ Solutions
 
 ```
-"Connection refused"        → Start database service
-"Authentication failed"     → Check credentials
-"Too many connections"      → Kill idle, increase limit
-"No space left"             → VACUUM or add disk
-"Lock wait timeout"         → Find and kill blocking query
-"OOM"                       → Increase memory limit
+"Connection refused"        â†’ Start database service
+"Authentication failed"     â†’ Check credentials
+"Too many connections"      â†’ Kill idle, increase limit
+"No space left"             â†’ VACUUM or add disk
+"Lock wait timeout"         â†’ Find and kill blocking query
+"OOM"                       â†’ Increase memory limit
 ```

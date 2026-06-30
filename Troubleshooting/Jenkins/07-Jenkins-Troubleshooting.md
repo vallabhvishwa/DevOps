@@ -1,6 +1,8 @@
 # Jenkins Troubleshooting - Complete Guide
 ## From Basic to Advanced - Every Scenario
 
+> **Learning reference:** [Jenkins CI/CD](../../Notes/Jenkins/DevOps-06-Jenkins-CICD.md) | [Groovy Shared Libraries](../../Notes/Jenkins/Jenkins-Groovy-Shared-Libraries.md)
+
 ---
 
 # SECTION 1: BUILD FAILURES

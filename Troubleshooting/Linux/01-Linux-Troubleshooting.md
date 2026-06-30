@@ -1,6 +1,8 @@
 # Linux Troubleshooting - Complete Guide
 ## From Basic to Advanced - Every Scenario
 
+> **Learning reference:** [Linux Fundamentals](../../Notes/Linux/DevOps-01-Linux-Fundamentals.md) | [Linux Cheatsheet](../../Notes/Cheatsheets/Linux-Cheatsheet.md)
+
 ---
 
 # HOW TO USE THIS GUIDE

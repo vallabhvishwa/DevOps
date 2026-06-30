@@ -1,5 +1,10 @@
 # Troubleshooting Guides - Master Index
+
+> **last_reviewed:** 2026-06-30
+
 ## Complete Troubleshooting Reference for DevOps/SRE
+
+Every guide links back to learning notes. **Incident?** Start here. **Want depth?** Follow the learning reference link at the top of each guide.
 
 ---
 
@@ -7,32 +12,35 @@
 
 ```
 Troubleshooting/
-├── Linux/        → System, processes, permissions, disk, network
-├── Kubernetes/   → Pods, services, storage, workloads
-├── Docker/       → Containers, images, builds, networking
-├── Networking/   → Connectivity, DNS, firewall, SSL/TLS
-├── Java/         → JVM, memory, GC, startup, containers
-├── NodeJS/       → V8, event loop, memory, dependencies
-├── Jenkins/      → Builds, pipelines, K8s agents
-├── Databases/    → PostgreSQL, MySQL, Redis
-└── Azure/        → VMs, AKS, Storage, SQL, Identity
+├── Linux/
+├── Kubernetes/
+├── Docker/
+├── Networking/
+├── Java/
+├── NodeJS/
+├── Jenkins/
+├── Databases/          → PostgreSQL, MySQL, Redis + SQL Server Azure
+├── Kafka/
+└── Azure/
 ```
 
 ---
 
 ## Quick Access
 
-| Technology | Guide | Key Scenarios |
-|------------|-------|---------------|
-| [Linux](./Linux/) | System Troubleshooting | CPU, Memory, Disk, Network, Permissions |
-| [Kubernetes](./Kubernetes/) | K8s Troubleshooting | Pod States, Scheduling, Networking, Storage |
-| [Docker](./Docker/) | Container Troubleshooting | Startup, Images, Builds, Resources |
-| [Networking](./Networking/) | Network Troubleshooting | Connectivity, DNS, Firewall, SSL |
-| [Java](./Java/) | Java App Troubleshooting | JVM, Memory, GC, Performance |
-| [NodeJS](./NodeJS/) | Node.js Troubleshooting | V8, Event Loop, Memory Leaks |
-| [Jenkins](./Jenkins/) | CI/CD Troubleshooting | Builds, Pipelines, K8s Agents |
-| [Databases](./Databases/) | Database Troubleshooting | PostgreSQL, MySQL, Redis |
-| [Azure](./Azure/) | Cloud Troubleshooting | VMs, AKS, Storage, Networking |
+| Technology | Guide | Learning notes |
+|------------|-------|----------------|
+| Linux | [System Troubleshooting](./Linux/01-Linux-Troubleshooting.md) | [Linux Fundamentals](../Notes/Linux/DevOps-01-Linux-Fundamentals.md) |
+| Kubernetes | [K8s Troubleshooting](./Kubernetes/02-Kubernetes-Troubleshooting.md) | [Kubernetes](../Notes/Kubernetes/DevOps-04-Kubernetes.md) |
+| Docker | [Container Troubleshooting](./Docker/03-Docker-Containers-Troubleshooting.md) | [Docker](../Notes/Docker/Docker-Complete-Guide.md) |
+| Networking | [Network Troubleshooting](./Networking/04-Networking-Troubleshooting.md) | [Networking](../Notes/Networking/DevOps-03-Networking.md) |
+| Java | [Java App Troubleshooting](./Java/05-Java-Application-Troubleshooting.md) | [Observability](../Notes/Observability/DevOps-07-Observability-Apps.md) |
+| Node.js | [Node.js Troubleshooting](./NodeJS/06-NodeJS-Application-Troubleshooting.md) | [Observability](../Notes/Observability/DevOps-07-Observability-Apps.md) |
+| Jenkins | [CI/CD Troubleshooting](./Jenkins/07-Jenkins-Troubleshooting.md) | [Jenkins](../Notes/Jenkins/DevOps-06-Jenkins-CICD.md) |
+| Databases | [DB Troubleshooting](./Databases/08-Database-Troubleshooting.md) | [Databases](../Notes/Databases/DevOps-21-Databases.md) |
+| SQL Server | [SQL Server / Azure SQL](./Databases/SQL-Server-Azure-Troubleshooting.md) | [SQL Server Azure](../Notes/Databases/SQL-Server-Azure.md) |
+| Kafka | [Kafka Troubleshooting](./Kafka/Kafka-Troubleshooting.md) | [Kafka](../Notes/Kafka/Kafka-Complete-Guide.md) |
+| Azure | [Cloud Troubleshooting](./Azure/) | [Azure Index](../Notes/Azure/Azure-00-INDEX.md) |
 
 ---
 
@@ -42,25 +50,15 @@ Troubleshooting/
 
 ```
 LEVEL 1 - DIRECT:        Error message clearly states the problem
-                         Solution is straightforward
-
 LEVEL 2 - INTERMEDIATE:  Symptoms visible but cause needs investigation
-                         Requires connecting multiple data points
-
 LEVEL 3 - COMPLEX:       Symptoms misleading or hidden
-                         Requires deep analysis and theory knowledge
 ```
 
 ### Systematic Approach
 
 ```
-1. OBSERVE        What exactly is happening?
-2. COLLECT        Gather logs, metrics, events
-3. CORRELATE      Connect symptoms to possible causes
-4. HYPOTHESIZE    Form theories based on evidence
-5. TEST           Validate theories with targeted checks
-6. RESOLVE        Fix root cause, not just symptoms
-7. PREVENT        Add monitoring/alerting for future
+1. OBSERVE → 2. COLLECT → 3. CORRELATE → 4. HYPOTHESIZE
+5. TEST → 6. RESOLVE → 7. PREVENT
 ```
 
 ---
@@ -70,37 +68,20 @@ LEVEL 3 - COMPLEX:       Symptoms misleading or hidden
 ### Exit Codes
 | Code | Meaning |
 |------|---------|
-| 0 | Success |
-| 1 | General error |
-| 126 | Permission denied (not executable) |
-| 127 | Command not found |
-| 137 | Killed (OOMKilled, SIGKILL) |
-| 139 | Segmentation fault |
-| 143 | Terminated (SIGTERM) |
-
-### HTTP Status Codes
-| Code | Meaning |
-|------|---------|
-| 400 | Bad Request |
-| 401 | Unauthorized |
-| 403 | Forbidden |
-| 404 | Not Found |
-| 500 | Internal Server Error |
-| 502 | Bad Gateway |
-| 503 | Service Unavailable |
-| 504 | Gateway Timeout |
+| 137 | OOMKilled / SIGKILL |
+| 143 | SIGTERM |
 
 ### Kubernetes Pod States
 | State | Common Causes |
 |-------|---------------|
-| Pending | No resources, node selector, taints |
-| ImagePullBackOff | Wrong image, auth failed, network |
-| CrashLoopBackOff | App crash, bad config, missing deps |
-| Running but not Ready | Probe failing, app not ready |
-| Terminating | Finalizers, stuck processes |
+| Pending | Resources, node selector, PVC |
+| ImagePullBackOff | Image name, auth, network |
+| CrashLoopBackOff | App crash, bad config |
 
 ---
 
 ## Related Resources
 
 - [Learning Notes](../Notes/INDEX.md)
+- [Cheatsheets](../Notes/Cheatsheets/)
+- [PetClinic runbooks](../Projects/PetClinic.md)

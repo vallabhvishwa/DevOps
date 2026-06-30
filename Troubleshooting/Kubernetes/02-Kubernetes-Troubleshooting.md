@@ -1,6 +1,8 @@
 # Kubernetes Troubleshooting - Complete Guide
 ## From Basic to Advanced - Every Scenario
 
+> **Learning reference:** [Kubernetes Notes](../../Notes/Kubernetes/DevOps-04-Kubernetes.md) | [kubectl Cheatsheet](../../Notes/Cheatsheets/kubectl-Cheatsheet.md) | [Helm Enterprise](../../Notes/Helm/Helm-Enterprise-Patterns.md)
+
 ---
 
 # HOW TO USE THIS GUIDE

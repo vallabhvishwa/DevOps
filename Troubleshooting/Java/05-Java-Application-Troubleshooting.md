@@ -1,6 +1,8 @@
 # Java Application Troubleshooting - Complete Guide
 ## From Basic to Advanced - Every Scenario
 
+> **Learning reference:** [Observability & Java Apps](../../Notes/Observability/DevOps-07-Observability-Apps.md)
+
 ---
 
 # SECTION 1: STARTUP ISSUES
